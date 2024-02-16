@@ -22,10 +22,17 @@ namespace SorvetesPinguin
         public static List<Produto> CarregaLista()
         {
             // Faz a leitura do arquivo json
-            string arquivo_json = File.ReadAllText("./meuarquivojson.json");
+            if (File.Exists("./meuarquivojson.json"))
+            {
+                string arquivo_json = File.ReadAllText("./meuarquivojson.json");
+                return JsonConvert.DeserializeObject<List<Produto>>(arquivo_json);
+            }
+            else
+            {
+                return new List<Produto>();
+            }
 
             // Retorna o arquivo em forma de lista de produtos
-            return JsonConvert.DeserializeObject<List<Produto>>(arquivo_json);
         }
     }
 }

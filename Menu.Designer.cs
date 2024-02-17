@@ -44,6 +44,9 @@
             this.txtDescricao = new System.Windows.Forms.TextBox();
             this.txtNomeProduto = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.lsvProdutos = new System.Windows.Forms.ListView();
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.menuStrip1.SuspendLayout();
             this.pnlAdicionarProduto.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numValor)).BeginInit();
@@ -59,7 +62,7 @@
             this.produtosToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1028, 38);
+            this.menuStrip1.Size = new System.Drawing.Size(1028, 36);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -70,21 +73,22 @@
             this.listaToolStripMenuItem});
             this.produtosToolStripMenuItem.ForeColor = System.Drawing.Color.DeepPink;
             this.produtosToolStripMenuItem.Name = "produtosToolStripMenuItem";
-            this.produtosToolStripMenuItem.Size = new System.Drawing.Size(108, 34);
+            this.produtosToolStripMenuItem.Size = new System.Drawing.Size(108, 32);
             this.produtosToolStripMenuItem.Text = "Produtos";
             // 
             // adicionarToolStripMenuItem
             // 
             this.adicionarToolStripMenuItem.Name = "adicionarToolStripMenuItem";
-            this.adicionarToolStripMenuItem.Size = new System.Drawing.Size(198, 36);
+            this.adicionarToolStripMenuItem.Size = new System.Drawing.Size(270, 36);
             this.adicionarToolStripMenuItem.Text = "Adicionar";
             this.adicionarToolStripMenuItem.Click += new System.EventHandler(this.adicionarToolStripMenuItem_Click);
             // 
             // listaToolStripMenuItem
             // 
             this.listaToolStripMenuItem.Name = "listaToolStripMenuItem";
-            this.listaToolStripMenuItem.Size = new System.Drawing.Size(198, 36);
+            this.listaToolStripMenuItem.Size = new System.Drawing.Size(270, 36);
             this.listaToolStripMenuItem.Text = "Lista";
+            this.listaToolStripMenuItem.Click += new System.EventHandler(this.listaToolStripMenuItem_Click);
             // 
             // pnlAdicionarProduto
             // 
@@ -231,6 +235,30 @@
             this.label1.Text = "Adicionar Produto";
             this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
+            // lsvProdutos
+            // 
+            this.lsvProdutos.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader1,
+            this.columnHeader2});
+            this.lsvProdutos.HideSelection = false;
+            this.lsvProdutos.Location = new System.Drawing.Point(646, 41);
+            this.lsvProdutos.Name = "lsvProdutos";
+            this.lsvProdutos.Size = new System.Drawing.Size(370, 571);
+            this.lsvProdutos.TabIndex = 2;
+            this.lsvProdutos.UseCompatibleStateImageBehavior = false;
+            this.lsvProdutos.View = System.Windows.Forms.View.Details;
+            this.lsvProdutos.Visible = false;
+            // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "Nome";
+            this.columnHeader1.Width = 190;
+            // 
+            // columnHeader2
+            // 
+            this.columnHeader2.Text = "Valor";
+            this.columnHeader2.Width = 176;
+            // 
             // Menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
@@ -238,6 +266,7 @@
             this.BackgroundImage = global::SorvetesPinguin.Properties.Resources.icebg;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1028, 624);
+            this.Controls.Add(this.lsvProdutos);
             this.Controls.Add(this.pnlAdicionarProduto);
             this.Controls.Add(this.menuStrip1);
             this.Font = new System.Drawing.Font("Nirmala UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -274,5 +303,8 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ListView lsvProdutos;
+        private System.Windows.Forms.ColumnHeader columnHeader1;
+        private System.Windows.Forms.ColumnHeader columnHeader2;
     }
 }

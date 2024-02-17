@@ -65,5 +65,29 @@ namespace SorvetesPinguin
 
             limparCampos();
         }
+
+        private void listaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // Adiciona a coluna no ListView
+            // lsvProdutos.View = View.Details;
+            // lsvProdutos.Columns.Add("Nome");
+            // lsvProdutos.Columns.Add("Valor");
+
+            lsvProdutos.Items.Clear();
+
+            // Executa uma vez para cada produto na lista
+            foreach (Produto produto in produtos)
+            {
+                // Cria um item de list view vazio
+                ListViewItem item = new ListViewItem(produto.Nome);
+
+                item.SubItems.Add(produto.Valor.ToString("c"));
+
+                // Adiciona o item ao listView
+                lsvProdutos.Items.Add(item);
+            }
+
+            lsvProdutos.Visible = true;
+        }
     }
 }

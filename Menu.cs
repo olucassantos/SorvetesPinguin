@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -85,24 +86,7 @@ namespace SorvetesPinguin
 
         private void listaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            // Adiciona a coluna no ListView
-            // lsvProdutos.View = View.Details;
-            // lsvProdutos.Columns.Add("Nome");
-            // lsvProdutos.Columns.Add("Valor");
-
-            lsvProdutos.Items.Clear();
-
-            // Executa uma vez para cada produto na lista
-            foreach (Produto produto in produtos)
-            {
-                // Cria um item de list view vazio
-                ListViewItem item = new ListViewItem(produto.Nome);
-
-                item.SubItems.Add(produto.Valor.ToString("c"));
-
-                // Adiciona o item ao listView
-                lsvProdutos.Items.Add(item);
-            }
+            carregaListaProdutos();
 
             lsvProdutos.Visible = true;
         }
@@ -136,17 +120,51 @@ namespace SorvetesPinguin
             return true;
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnApagar_Click(object sender, EventArgs e)
         {
             // Confirma se a pessoa quer realmente apagar o produto
+            DialogResult resposta = MessageBox.Show(
+                "Deseja realmente apagar o produto?",
+                "Apagar Produto",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Exclamation
+            );
 
-            // Pega o index do item selecionado no ListView
+            if (resposta == DialogResult.No)
+                return;
 
-            // Remove o item da Lista
+            // Pegar o index do item selecionado no ListView
+            ListView.SelectedIndexCollection itensSelecionados = lsvProdutos.SelectedIndices;
 
-            // Salva a lista no arquivo de text
+            // Passa por cada item que foi selecionado
+            foreach (int item in itensSelecionados)
+            {
+                // Remove o item da Lista   
+                produtos.RemoveAt(item);
+            }
 
-            // Recarrega o ListView
+            // Recarrega a lista de produtos
+            carregaListaProdutos();
+
+            // Salva a lista no arquivo de texto
+            ProcessaJson.ArmazenaLista("./meuarquivojson.json", produtos);
+        }
+
+        private void carregaListaProdutos()
+        {
+            lsvProdutos.Items.Clear();
+
+            // Executa uma vez para cada produto na lista
+            foreach (Produto produto in produtos)
+            {
+                // Cria um item de list view vazio
+                ListViewItem item = new ListViewItem(produto.Nome);
+
+                item.SubItems.Add(produto.Valor.ToString("c"));
+
+                // Adiciona o item ao listView
+                lsvProdutos.Items.Add(item);
+            }
         }
     }
 }

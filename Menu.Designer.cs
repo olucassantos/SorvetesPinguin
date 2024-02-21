@@ -80,14 +80,14 @@
             // adicionarToolStripMenuItem
             // 
             this.adicionarToolStripMenuItem.Name = "adicionarToolStripMenuItem";
-            this.adicionarToolStripMenuItem.Size = new System.Drawing.Size(135, 24);
+            this.adicionarToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
             this.adicionarToolStripMenuItem.Text = "Adicionar";
             this.adicionarToolStripMenuItem.Click += new System.EventHandler(this.adicionarToolStripMenuItem_Click);
             // 
             // listaToolStripMenuItem
             // 
             this.listaToolStripMenuItem.Name = "listaToolStripMenuItem";
-            this.listaToolStripMenuItem.Size = new System.Drawing.Size(135, 24);
+            this.listaToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
             this.listaToolStripMenuItem.Text = "Lista";
             this.listaToolStripMenuItem.Click += new System.EventHandler(this.listaToolStripMenuItem_Click);
             // 
@@ -243,6 +243,7 @@
             this.columnHeader2});
             this.lsvProdutos.HideSelection = false;
             this.lsvProdutos.Location = new System.Drawing.Point(646, 41);
+            this.lsvProdutos.MultiSelect = false;
             this.lsvProdutos.Name = "lsvProdutos";
             this.lsvProdutos.Size = new System.Drawing.Size(370, 521);
             this.lsvProdutos.TabIndex = 2;
@@ -270,7 +271,7 @@
             this.btnApagar.TabIndex = 6;
             this.btnApagar.Text = "Apagar";
             this.btnApagar.UseVisualStyleBackColor = false;
-            this.btnApagar.Click += new System.EventHandler(this.button1_Click);
+            this.btnApagar.Click += new System.EventHandler(this.btnApagar_Click);
             // 
             // btnEditar
             // 

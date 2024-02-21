@@ -13,7 +13,8 @@ namespace SorvetesPinguin
         public string Nome { get; set; }
         public string Descricao { get; set; }
         public string Ingredientes { get; set; }
-        public double Valor { get; set; }
+        public double Valor {  get; set; }
+
         private DateTime DataCriacao { get; }
 
         public Produto(string nome, string descricao, string ingredientes, double valor) 

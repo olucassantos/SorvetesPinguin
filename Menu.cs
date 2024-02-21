@@ -47,10 +47,27 @@ namespace SorvetesPinguin
 
         private void btnSalvarCadastro_Click(object sender, EventArgs e)
         {
+            // Pega os valores do formulário e guarda em variáveis
             string nome = txtNomeProduto.Text;
             string descricao = txtDescricao.Text;
             string ingredientes = txtIngredientes.Text;
             double valor = (double)numValor.Value;
+
+            // Verifica se o nome está em branco
+            if (!ValidaTexto("Nome do produto", nome, false, 4))
+                return;
+
+            // Valida o campo de descrição
+            if (!ValidaTexto("Descrição", descricao, false))
+                return;
+
+            // Valida o campo de descrição
+            if (!ValidaTexto("Ingredientes", ingredientes, false))
+                return;
+
+            // Valida se o valor não é zero
+            if (!ValidaNumeros("Valor", valor, false)) 
+                return;
 
             // Cria um novo produto
             Produto novo_produto = new Produto(nome, descricao, ingredientes, valor);
@@ -88,6 +105,48 @@ namespace SorvetesPinguin
             }
 
             lsvProdutos.Visible = true;
+        }
+
+        public static bool ValidaTexto(string nomeCampo, string texto, bool permiteVazio, int comprimentoMinimo = 0)
+        {
+            // Se não permite vazio e o texto estiver vazio, retorna falso
+            if (!permiteVazio && texto == "")
+            {
+                MessageBox.Show($"O campo {nomeCampo} não pode ficar em branco!");
+                return false;
+            }
+
+            if (comprimentoMinimo > 0 && texto.Length < comprimentoMinimo)
+            {
+                MessageBox.Show($"O campo {nomeCampo} não pode ter menos que {comprimentoMinimo} caracteres");
+                return false;
+            }
+
+            return true;
+        }
+
+        public static bool ValidaNumeros(string nomeCampo, object numero, bool permiteZeros)
+        {
+            if (!permiteZeros && numero.ToString() == "0")
+            {
+                MessageBox.Show($"O campo {nomeCampo} não pode ficar zerado!");
+                return false;
+            }
+
+            return true;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            // Confirma se a pessoa quer realmente apagar o produto
+
+            // Pega o index do item selecionado no ListView
+
+            // Remove o item da Lista
+
+            // Salva a lista no arquivo de text
+
+            // Recarrega o ListView
         }
     }
 }

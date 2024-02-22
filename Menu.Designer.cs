@@ -228,7 +228,7 @@
             this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.label1.Font = new System.Drawing.Font("Nirmala UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(19, -3);
+            this.label1.Location = new System.Drawing.Point(62, -3);
             this.label1.Name = "label1";
             this.label1.Padding = new System.Windows.Forms.Padding(30, 15, 30, 15);
             this.label1.Size = new System.Drawing.Size(233, 58);
@@ -250,6 +250,7 @@
             this.lsvProdutos.UseCompatibleStateImageBehavior = false;
             this.lsvProdutos.View = System.Windows.Forms.View.Details;
             this.lsvProdutos.Visible = false;
+            this.lsvProdutos.SelectedIndexChanged += new System.EventHandler(this.lsvProdutos_SelectedIndexChanged);
             // 
             // columnHeader1
             // 
@@ -264,6 +265,7 @@
             // btnApagar
             // 
             this.btnApagar.BackColor = System.Drawing.Color.MistyRose;
+            this.btnApagar.Enabled = false;
             this.btnApagar.ForeColor = System.Drawing.Color.Red;
             this.btnApagar.Location = new System.Drawing.Point(920, 565);
             this.btnApagar.Name = "btnApagar";
@@ -283,6 +285,7 @@
             this.btnEditar.TabIndex = 7;
             this.btnEditar.Text = "Editar";
             this.btnEditar.UseVisualStyleBackColor = false;
+            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
             // 
             // Menu
             // 

@@ -17,6 +17,7 @@ namespace SorvetesPinguin
     {
         // Define a criação de uma lista de produtos vazia
         List<Produto> produtos;
+        int? ProdutoSelecionado = null;
 
         public Menu()
         {
@@ -70,16 +71,46 @@ namespace SorvetesPinguin
             if (!ValidaNumeros("Valor", valor, false)) 
                 return;
 
-            // Cria um novo produto
-            Produto novo_produto = new Produto(nome, descricao, ingredientes, valor);
+            // Se não for nulo é uma edição
+            if (ProdutoSelecionado != null)
+            {
+                // Pega o produto selecionado da lista
+                Produto produtoEdicao = produtos[(int)ProdutoSelecionado];
 
-            // Adiciona um produto na lista
-            produtos.Add(novo_produto);
+                // Altera de acordo com os valores dos campos
+                produtoEdicao.Nome = nome;
+                produtoEdicao.Descricao = descricao;
+                produtoEdicao.Valor = valor;
+                produtoEdicao.Ingredientes = ingredientes;
+
+                // Salva o produto na mesma posição da lista
+                //produtos[(int)ProdutoSelecionado] = produtoEdicao; // Desnecessário!
+            }
+            else
+            {
+                // Cria um novo produto
+                Produto novo_produto = new Produto(nome, descricao, ingredientes, valor);
+
+                // Adiciona um produto na lista
+                produtos.Add(novo_produto);
+            }
 
             // Armazena a lista no arquivo json
             ProcessaJson.ArmazenaLista("./meuarquivojson.json", produtos);
 
-            MessageBox.Show("Produto cadastrado com sucesso!");
+            string mensagem = "";
+
+            if (ProdutoSelecionado != null)
+            {
+                mensagem = "Produto alterado com sucesso!";
+                ProdutoSelecionado = null;
+            }
+            else
+                mensagem = "Produto cadastrado com sucesso!";
+
+            carregaListaProdutos();
+
+            MessageBox.Show(mensagem);
 
             limparCampos();
         }
@@ -135,13 +166,19 @@ namespace SorvetesPinguin
 
             // Pegar o index do item selecionado no ListView
             ListView.SelectedIndexCollection itensSelecionados = lsvProdutos.SelectedIndices;
-
+            
             // Passa por cada item que foi selecionado
             foreach (int item in itensSelecionados)
             {
                 // Remove o item da Lista   
                 produtos.RemoveAt(item);
             }
+
+            //if (itensSelecionados.Count > 0)
+            //{
+            //    int item = itensSelecionados[0];
+            //    produtos.RemoveAt(item);
+            //}
 
             // Recarrega a lista de produtos
             carregaListaProdutos();
@@ -165,6 +202,37 @@ namespace SorvetesPinguin
                 // Adiciona o item ao listView
                 lsvProdutos.Items.Add(item);
             }
+        }
+
+        private void lsvProdutos_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // Caso tenha produtos selecionados
+            if (lsvProdutos.SelectedIndices.Count > 0)
+                // Habilita o botão de apagar
+                btnApagar.Enabled = true;
+            else
+                // Desabilita o botão de apagar
+                btnApagar.Enabled = false;
+        }
+
+        private void btnEditar_Click(object sender, EventArgs e)
+        {
+            int itemSelecionado = 0;
+
+            // Pega o item selecionado
+            if (lsvProdutos.SelectedItems.Count > 0)
+                itemSelecionado = lsvProdutos.SelectedIndices[0];
+
+            // Busca o produto selecionado na lista de produto
+            Produto produtoSelecionado = produtos[itemSelecionado];
+
+            // Coloca os dados no formulário do produto
+            txtNomeProduto.Text = produtoSelecionado.Nome;
+            txtDescricao.Text = produtoSelecionado.Descricao;
+            txtIngredientes.Text = produtoSelecionado.Ingredientes;
+            numValor.Value = (decimal)produtoSelecionado.Valor;
+
+            ProdutoSelecionado = itemSelecionado;
         }
     }
 }

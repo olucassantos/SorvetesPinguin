@@ -49,6 +49,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FormVisualizaProduto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormVisualizaProduto.Designer.cs">
+      <DependentUpon>FormVisualizaProduto.cs</DependentUpon>
+    </Compile>
     <Compile Include="Menu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -59,6 +65,9 @@
     <Compile Include="Produto.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FormVisualizaProduto.resx">
+      <DependentUpon>FormVisualizaProduto.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Menu.resx">
       <DependentUpon>Menu.cs</DependentUpon>
     </EmbeddedResource>

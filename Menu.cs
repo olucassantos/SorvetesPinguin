@@ -234,5 +234,21 @@ namespace SorvetesPinguin
 
             ProdutoSelecionado = itemSelecionado;
         }
+
+        private void lsvProdutos_DoubleClick(object sender, EventArgs e)
+        {
+            int? indexSelecionado = null;
+            // Verificar se tem um item selecionado no listView
+            if (lsvProdutos.SelectedItems.Count > 0)
+                // Pegando o indice do item que foi selecionado
+                indexSelecionado = lsvProdutos.SelectedIndices[0];
+
+            // Pega o objeto de produto na List<T> de produtos
+            Produto produto = produtos[(int)indexSelecionado];
+
+            // Abre a tela de visualização
+            FormVisualizaProduto formVisualiza = new FormVisualizaProduto(produto);
+            formVisualiza.ShowDialog();
+        }
     }
 }

@@ -187,12 +187,15 @@ namespace SorvetesPinguin
             ProcessaJson.ArmazenaLista("./meuarquivojson.json", produtos);
         }
 
-        private void carregaListaProdutos()
+        private void carregaListaProdutos(List<Produto> listaProdutos = null)
         {
             lsvProdutos.Items.Clear();
 
+            if (listaProdutos == null)
+                listaProdutos = produtos;
+
             // Executa uma vez para cada produto na lista
-            foreach (Produto produto in produtos)
+            foreach (Produto produto in listaProdutos)
             {
                 // Cria um item de list view vazio
                 ListViewItem item = new ListViewItem(produto.Nome);
@@ -249,6 +252,39 @@ namespace SorvetesPinguin
             // Abre a tela de visualização
             FormVisualizaProduto formVisualiza = new FormVisualizaProduto(produto);
             formVisualiza.ShowDialog();
+        }
+
+        private void txtBusca_TextChanged(object sender, EventArgs e)
+        {
+            string busca = txtBusca.Text;
+
+            // Caso apague todas as letras, carrega a lista
+            if (busca.Length == 0)
+            {
+                carregaListaProdutos();
+                return;
+            }
+
+            // Não realiza a busca caso tenha menos que 3 caracteres
+            if (busca.Length < 3)
+                return;
+
+            List<Produto> resultadosBusca;
+
+            // Metodo 1
+            // Busca todos os produtos que contenham a palavra digitada pelo usuário no nome.
+            resultadosBusca = produtos.FindAll(prod => prod.Nome.ToUpper().Contains(busca.ToUpper()));
+
+            // Carrega os resultados de produtos no list view
+            carregaListaProdutos(resultadosBusca);
+
+            // Metodo 2
+            //resultadosBusca = produtos.FindAll(
+            //    delegate (Produto prod)
+            //    {
+            //        return prod.Nome.Contains(busca);
+            //    }
+            //);
         }
     }
 }

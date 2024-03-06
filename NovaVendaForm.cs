@@ -14,6 +14,9 @@ namespace SorvetesPinguin
     {
         List<Produto> produtos;
 
+        // Cria um pedido novo
+        Pedido pedido;
+
         // Cria uma lista vazia para os itens do pedido
         List<Item> itensPedido;
 
@@ -74,6 +77,9 @@ namespace SorvetesPinguin
 
             // Inicializa a lista de intens vazia
             itensPedido = new List<Item>();
+
+            // Cria um novo pedido
+            pedido = new Pedido("", "Aberto", "");
         }
 
         private void btnAdicionarItem_Click(object sender, EventArgs e)

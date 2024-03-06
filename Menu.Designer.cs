@@ -32,6 +32,8 @@
             this.produtosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.adicionarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.listaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pedidosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.novoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pnlAdicionarProduto = new System.Windows.Forms.Panel();
             this.btnSalvarCadastro = new System.Windows.Forms.Button();
             this.btnCancelarCadastro = new System.Windows.Forms.Button();
@@ -49,8 +51,6 @@
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.btnApagar = new System.Windows.Forms.Button();
             this.btnEditar = new System.Windows.Forms.Button();
-            this.pedidosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.novoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.txtBusca = new System.Windows.Forms.TextBox();
             this.menuStrip1.SuspendLayout();
             this.pnlAdicionarProduto.SuspendLayout();
@@ -61,13 +61,14 @@
             // 
             this.menuStrip1.BackColor = System.Drawing.Color.CornflowerBlue;
             this.menuStrip1.Font = new System.Drawing.Font("Nirmala UI", 10F);
+            this.menuStrip1.GripMargin = new System.Windows.Forms.Padding(2, 2, 0, 2);
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.produtosToolStripMenuItem,
             this.pedidosToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1028, 27);
+            this.menuStrip1.Size = new System.Drawing.Size(1028, 36);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -78,22 +79,37 @@
             this.listaToolStripMenuItem});
             this.produtosToolStripMenuItem.ForeColor = System.Drawing.Color.DeepPink;
             this.produtosToolStripMenuItem.Name = "produtosToolStripMenuItem";
-            this.produtosToolStripMenuItem.Size = new System.Drawing.Size(77, 23);
+            this.produtosToolStripMenuItem.Size = new System.Drawing.Size(108, 32);
             this.produtosToolStripMenuItem.Text = "Produtos";
             // 
             // adicionarToolStripMenuItem
             // 
             this.adicionarToolStripMenuItem.Name = "adicionarToolStripMenuItem";
-            this.adicionarToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
+            this.adicionarToolStripMenuItem.Size = new System.Drawing.Size(198, 36);
             this.adicionarToolStripMenuItem.Text = "Adicionar";
             this.adicionarToolStripMenuItem.Click += new System.EventHandler(this.adicionarToolStripMenuItem_Click);
             // 
             // listaToolStripMenuItem
             // 
             this.listaToolStripMenuItem.Name = "listaToolStripMenuItem";
-            this.listaToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
+            this.listaToolStripMenuItem.Size = new System.Drawing.Size(198, 36);
             this.listaToolStripMenuItem.Text = "Lista";
             this.listaToolStripMenuItem.Click += new System.EventHandler(this.listaToolStripMenuItem_Click);
+            // 
+            // pedidosToolStripMenuItem
+            // 
+            this.pedidosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.novoToolStripMenuItem});
+            this.pedidosToolStripMenuItem.Name = "pedidosToolStripMenuItem";
+            this.pedidosToolStripMenuItem.Size = new System.Drawing.Size(97, 32);
+            this.pedidosToolStripMenuItem.Text = "Pedidos";
+            // 
+            // novoToolStripMenuItem
+            // 
+            this.novoToolStripMenuItem.Name = "novoToolStripMenuItem";
+            this.novoToolStripMenuItem.Size = new System.Drawing.Size(270, 36);
+            this.novoToolStripMenuItem.Text = "Novo";
+            this.novoToolStripMenuItem.Click += new System.EventHandler(this.novoToolStripMenuItem_Click);
             // 
             // pnlAdicionarProduto
             // 
@@ -147,7 +163,7 @@
             this.label5.ForeColor = System.Drawing.Color.White;
             this.label5.Location = new System.Drawing.Point(3, 384);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(72, 13);
+            this.label5.Size = new System.Drawing.Size(96, 21);
             this.label5.TabIndex = 3;
             this.label5.Text = "Ingredientes";
             // 
@@ -158,7 +174,7 @@
             this.label4.ForeColor = System.Drawing.Color.White;
             this.label4.Location = new System.Drawing.Point(3, 254);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(56, 13);
+            this.label4.Size = new System.Drawing.Size(77, 21);
             this.label4.TabIndex = 3;
             this.label4.Text = "Descrição";
             // 
@@ -169,7 +185,7 @@
             this.label3.ForeColor = System.Drawing.Color.White;
             this.label3.Location = new System.Drawing.Point(3, 185);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(33, 13);
+            this.label3.Size = new System.Drawing.Size(46, 21);
             this.label3.TabIndex = 3;
             this.label3.Text = "Valor";
             // 
@@ -180,7 +196,7 @@
             this.label2.ForeColor = System.Drawing.Color.White;
             this.label2.Location = new System.Drawing.Point(3, 112);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(37, 13);
+            this.label2.Size = new System.Drawing.Size(53, 21);
             this.label2.TabIndex = 0;
             this.label2.Text = "Nome";
             // 
@@ -195,7 +211,7 @@
             0,
             0});
             this.numValor.Name = "numValor";
-            this.numValor.Size = new System.Drawing.Size(352, 25);
+            this.numValor.Size = new System.Drawing.Size(352, 34);
             this.numValor.TabIndex = 1;
             this.numValor.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.numValor.ThousandsSeparator = true;
@@ -223,7 +239,7 @@
             this.txtNomeProduto.Font = new System.Drawing.Font("Nirmala UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNomeProduto.Location = new System.Drawing.Point(3, 136);
             this.txtNomeProduto.Name = "txtNomeProduto";
-            this.txtNomeProduto.Size = new System.Drawing.Size(352, 25);
+            this.txtNomeProduto.Size = new System.Drawing.Size(352, 34);
             this.txtNomeProduto.TabIndex = 0;
             // 
             // label1
@@ -235,7 +251,7 @@
             this.label1.Location = new System.Drawing.Point(62, -3);
             this.label1.Name = "label1";
             this.label1.Padding = new System.Windows.Forms.Padding(30, 15, 30, 15);
-            this.label1.Size = new System.Drawing.Size(233, 58);
+            this.label1.Size = new System.Drawing.Size(319, 71);
             this.label1.TabIndex = 0;
             this.label1.Text = "Adicionar Produto";
             this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -291,31 +307,17 @@
             this.btnEditar.UseVisualStyleBackColor = false;
             this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
             // 
-            // pedidosToolStripMenuItem
-            // 
-            this.pedidosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.novoToolStripMenuItem});
-            this.pedidosToolStripMenuItem.Name = "pedidosToolStripMenuItem";
-            this.pedidosToolStripMenuItem.Size = new System.Drawing.Size(68, 23);
-            this.pedidosToolStripMenuItem.Text = "Pedidos";
-            // 
-            // novoToolStripMenuItem
-            // 
-            this.novoToolStripMenuItem.Name = "novoToolStripMenuItem";
-            this.novoToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
-            this.novoToolStripMenuItem.Text = "Novo";
-            // 
             // txtBusca
             // 
             this.txtBusca.Location = new System.Drawing.Point(646, 39);
             this.txtBusca.Name = "txtBusca";
-            this.txtBusca.Size = new System.Drawing.Size(370, 22);
+            this.txtBusca.Size = new System.Drawing.Size(370, 29);
             this.txtBusca.TabIndex = 8;
             this.txtBusca.TextChanged += new System.EventHandler(this.txtBusca_TextChanged);
             // 
             // Menu
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::SorvetesPinguin.Properties.Resources.icebg;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;

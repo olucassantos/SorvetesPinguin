@@ -286,5 +286,11 @@ namespace SorvetesPinguin
             //    }
             //);
         }
+
+        private void novoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            NovaVendaForm formulario = new NovaVendaForm();
+            formulario.ShowDialog();
+        }
     }
 }

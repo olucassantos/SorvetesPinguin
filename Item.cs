@@ -26,5 +26,17 @@ namespace SorvetesPinguin
                 return this.Valor * this.Quantidade;
             }
         }
+
+        public virtual Produto Produto
+        {
+            get
+            {
+                List<Produto> listaProdutos = ProcessaJson.CarregaLista();
+
+                Produto produto = listaProdutos.Find(prod => prod.Id == this.ProdutoId);
+
+                return produto;
+            }
+        }
     }
 }

@@ -119,5 +119,20 @@ namespace SorvetesPinguin
             // Mostra o valor na tela
             lblValorTotal.Text = valorTotal.ToString("c");
         }
+
+        private void btnFecharPedido_Click(object sender, EventArgs e)
+        {
+            // Validar as informações do pedido
+
+            // Preencher o pedido com as infomrações e status
+
+            // Armazenar pedido no arquivo JSOn
+
+            // Adicionar o Id do pedido aos itens
+
+            //Salvar os itenso no arquivo JSON
+
+            // Mostrar tela de visualização do pedido
+        }
     }
 }

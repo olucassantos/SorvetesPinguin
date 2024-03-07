@@ -55,7 +55,7 @@
             this.lsvProdutos.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lsvProdutos.HideSelection = false;
             this.lsvProdutos.Location = new System.Drawing.Point(8, 50);
-            this.lsvProdutos.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.lsvProdutos.Margin = new System.Windows.Forms.Padding(2);
             this.lsvProdutos.MultiSelect = false;
             this.lsvProdutos.Name = "lsvProdutos";
             this.lsvProdutos.Size = new System.Drawing.Size(219, 325);
@@ -66,7 +66,7 @@
             // txtPesquisaProdutos
             // 
             this.txtPesquisaProdutos.Location = new System.Drawing.Point(8, 29);
-            this.txtPesquisaProdutos.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtPesquisaProdutos.Margin = new System.Windows.Forms.Padding(2);
             this.txtPesquisaProdutos.Name = "txtPesquisaProdutos";
             this.txtPesquisaProdutos.Size = new System.Drawing.Size(219, 20);
             this.txtPesquisaProdutos.TabIndex = 1;
@@ -81,7 +81,7 @@
             this.columnHeader5});
             this.lsvItensPedido.HideSelection = false;
             this.lsvItensPedido.Location = new System.Drawing.Point(327, 91);
-            this.lsvItensPedido.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.lsvItensPedido.Margin = new System.Windows.Forms.Padding(2);
             this.lsvItensPedido.Name = "lsvItensPedido";
             this.lsvItensPedido.Size = new System.Drawing.Size(340, 220);
             this.lsvItensPedido.TabIndex = 0;
@@ -116,7 +116,7 @@
             // txtNomeCliente
             // 
             this.txtNomeCliente.Location = new System.Drawing.Point(324, 27);
-            this.txtNomeCliente.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtNomeCliente.Margin = new System.Windows.Forms.Padding(2);
             this.txtNomeCliente.Name = "txtNomeCliente";
             this.txtNomeCliente.Size = new System.Drawing.Size(219, 20);
             this.txtNomeCliente.TabIndex = 2;
@@ -124,7 +124,7 @@
             // txtCpfCliente
             // 
             this.txtCpfCliente.Location = new System.Drawing.Point(324, 63);
-            this.txtCpfCliente.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtCpfCliente.Margin = new System.Windows.Forms.Padding(2);
             this.txtCpfCliente.Name = "txtCpfCliente";
             this.txtCpfCliente.Size = new System.Drawing.Size(219, 20);
             this.txtCpfCliente.TabIndex = 2;
@@ -155,7 +155,7 @@
             // 
             this.btnAdicionarItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAdicionarItem.Location = new System.Drawing.Point(249, 214);
-            this.btnAdicionarItem.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnAdicionarItem.Margin = new System.Windows.Forms.Padding(2);
             this.btnAdicionarItem.Name = "btnAdicionarItem";
             this.btnAdicionarItem.Size = new System.Drawing.Size(40, 40);
             this.btnAdicionarItem.TabIndex = 4;
@@ -167,7 +167,7 @@
             // 
             this.numQuantidade.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.numQuantidade.Location = new System.Drawing.Point(243, 176);
-            this.numQuantidade.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.numQuantidade.Margin = new System.Windows.Forms.Padding(2);
             this.numQuantidade.Name = "numQuantidade";
             this.numQuantidade.Size = new System.Drawing.Size(52, 38);
             this.numQuantidade.TabIndex = 5;
@@ -200,17 +200,18 @@
             // btnFecharPedido
             // 
             this.btnFecharPedido.Location = new System.Drawing.Point(580, 347);
-            this.btnFecharPedido.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnFecharPedido.Margin = new System.Windows.Forms.Padding(2);
             this.btnFecharPedido.Name = "btnFecharPedido";
             this.btnFecharPedido.Size = new System.Drawing.Size(86, 27);
             this.btnFecharPedido.TabIndex = 8;
             this.btnFecharPedido.Text = "Salvar";
             this.btnFecharPedido.UseVisualStyleBackColor = true;
+            this.btnFecharPedido.Click += new System.EventHandler(this.btnFecharPedido_Click);
             // 
             // btnCancelar
             // 
             this.btnCancelar.Location = new System.Drawing.Point(508, 347);
-            this.btnCancelar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnCancelar.Margin = new System.Windows.Forms.Padding(2);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(68, 27);
             this.btnCancelar.TabIndex = 8;
@@ -248,7 +249,7 @@
             this.Controls.Add(this.txtPesquisaProdutos);
             this.Controls.Add(this.lsvItensPedido);
             this.Controls.Add(this.lsvProdutos);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "NovaVendaForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Nova Venda";

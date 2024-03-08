@@ -37,7 +37,6 @@
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.txtNomeCliente = new System.Windows.Forms.TextBox();
-            this.txtCpfCliente = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.btnAdicionarItem = new System.Windows.Forms.Button();
@@ -47,6 +46,7 @@
             this.btnFecharPedido = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.lblValorTotal = new System.Windows.Forms.Label();
+            this.txtCpfCliente = new System.Windows.Forms.MaskedTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.numQuantidade)).BeginInit();
             this.SuspendLayout();
             // 
@@ -115,25 +115,17 @@
             // 
             // txtNomeCliente
             // 
-            this.txtNomeCliente.Location = new System.Drawing.Point(324, 27);
+            this.txtNomeCliente.Location = new System.Drawing.Point(327, 27);
             this.txtNomeCliente.Margin = new System.Windows.Forms.Padding(2);
             this.txtNomeCliente.Name = "txtNomeCliente";
             this.txtNomeCliente.Size = new System.Drawing.Size(219, 20);
-            this.txtNomeCliente.TabIndex = 2;
-            // 
-            // txtCpfCliente
-            // 
-            this.txtCpfCliente.Location = new System.Drawing.Point(324, 63);
-            this.txtCpfCliente.Margin = new System.Windows.Forms.Padding(2);
-            this.txtCpfCliente.Name = "txtCpfCliente";
-            this.txtCpfCliente.Size = new System.Drawing.Size(219, 20);
-            this.txtCpfCliente.TabIndex = 2;
+            this.txtNomeCliente.TabIndex = 0;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Location = new System.Drawing.Point(324, 12);
+            this.label1.Location = new System.Drawing.Point(327, 12);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(39, 13);
@@ -144,7 +136,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Location = new System.Drawing.Point(324, 50);
+            this.label2.Location = new System.Drawing.Point(327, 50);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(27, 13);
@@ -229,12 +221,22 @@
             this.lblValorTotal.Text = "R$ 0,00";
             this.lblValorTotal.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
+            // txtCpfCliente
+            // 
+            this.txtCpfCliente.Location = new System.Drawing.Point(327, 66);
+            this.txtCpfCliente.Mask = "000.000.000-00";
+            this.txtCpfCliente.Name = "txtCpfCliente";
+            this.txtCpfCliente.Size = new System.Drawing.Size(219, 20);
+            this.txtCpfCliente.TabIndex = 1;
+            this.txtCpfCliente.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
+            // 
             // NovaVendaForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::SorvetesPinguin.Properties.Resources.icebg;
             this.ClientSize = new System.Drawing.Size(674, 382);
+            this.Controls.Add(this.txtCpfCliente);
             this.Controls.Add(this.lblValorTotal);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnFecharPedido);
@@ -244,7 +246,6 @@
             this.Controls.Add(this.btnAdicionarItem);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.txtCpfCliente);
             this.Controls.Add(this.txtNomeCliente);
             this.Controls.Add(this.txtPesquisaProdutos);
             this.Controls.Add(this.lsvItensPedido);
@@ -266,7 +267,6 @@
         private System.Windows.Forms.TextBox txtPesquisaProdutos;
         private System.Windows.Forms.ListView lsvItensPedido;
         private System.Windows.Forms.TextBox txtNomeCliente;
-        private System.Windows.Forms.TextBox txtCpfCliente;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ColumnHeader columnHeader1;
@@ -281,5 +281,6 @@
         private System.Windows.Forms.Button btnFecharPedido;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Label lblValorTotal;
+        private System.Windows.Forms.MaskedTextBox txtCpfCliente;
     }
 }

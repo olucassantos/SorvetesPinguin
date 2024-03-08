@@ -41,7 +41,7 @@ namespace SorvetesPinguin
         private int novoId()
         {
             // Pega a lista de produtos
-            List<Produto> listaProdutos = ProcessaJson.CarregaLista();
+            List<Produto> listaProdutos = ProcessaJson.CarregaListaProdutos();
 
             // Pega o maior ID da lista de produtos
             int maiorIdProduto = 0;

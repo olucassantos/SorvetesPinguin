@@ -31,7 +31,7 @@ namespace SorvetesPinguin
         {
             get
             {
-                List<Produto> listaProdutos = ProcessaJson.CarregaLista();
+                List<Produto> listaProdutos = ProcessaJson.CarregaListaProdutos();
 
                 Produto produto = listaProdutos.Find(prod => prod.Id == this.ProdutoId);
 

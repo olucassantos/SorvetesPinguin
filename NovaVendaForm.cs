@@ -20,6 +20,8 @@ namespace SorvetesPinguin
         // Cria uma lista vazia para os itens do pedido
         List<Item> itensPedido;
 
+        decimal valorTotal = 0;
+
         public NovaVendaForm()
         {
             InitializeComponent();
@@ -70,12 +72,12 @@ namespace SorvetesPinguin
         private void NovaVendaForm_Load(object sender, EventArgs e)
         {
             // Carrega a lista de produtos do arquivo json
-            produtos = ProcessaJson.CarregaLista();
+            produtos = ProcessaJson.CarregaListaProdutos();
 
             // Atualiza o ListView
             atualizaListViewProdutos();
 
-            // Inicializa a lista de intens vazia
+            // Inicializa a lista de itens vazia
             itensPedido = new List<Item>();
 
             // Cria um novo pedido
@@ -109,12 +111,18 @@ namespace SorvetesPinguin
 
             // Calcula e mostra o valor total na tela.
             calculaValorTotalPedido();
+
+            // Reseta a quantidade para 1
+            numQuantidade.Value = 1;
+
+            //desseleciona o item no listview
+            lsvProdutos.SelectedIndices.Clear();
         }
 
         private void calculaValorTotalPedido()
         {
             // Soma todos os valores totais
-            decimal valorTotal = itensPedido.Sum(item => item.ValorTotal);
+            valorTotal = itensPedido.Sum(item => item.ValorTotal);
 
             // Mostra o valor na tela
             lblValorTotal.Text = valorTotal.ToString("c");
@@ -123,16 +131,32 @@ namespace SorvetesPinguin
         private void btnFecharPedido_Click(object sender, EventArgs e)
         {
             // Validar as informações do pedido
+            if( ! SorvetesPinguin.Menu.ValidaTexto("Nome do Cliente", txtNomeCliente.Text, false, 5))
+                return;
 
-            // Preencher o pedido com as infomrações e status
+            if (!SorvetesPinguin.Menu.ValidaTexto("Cpf do Cliente", txtCpfCliente.Text, false, 11))
+                return;
 
-            // Armazenar pedido no arquivo JSOn
+            // Preencher o pedido com as informações e status
+            pedido.Nome = txtNomeCliente.Text;
+            pedido.Cpf = txtCpfCliente.Text;
+            pedido.Data = DateTime.Now;
+            pedido.ValorTotal = valorTotal;
+            pedido.Status = "Fechado";
 
-            // Adicionar o Id do pedido aos itens
-
-            //Salvar os itenso no arquivo JSON
+            // Armazenar pedido no arquivo JSON
+            pedido = ProcessaJson.ArmazenaPedido(pedido, itensPedido);
 
             // Mostrar tela de visualização do pedido
+            if (pedido.Id > 0)
+            {
+                MessageBox.Show("Pedido criado com sucesso!");
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Falha ao criar o pedido");
+            }
         }
     }
 }

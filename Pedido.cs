@@ -8,7 +8,7 @@ namespace SorvetesPinguin
 {
     internal class Pedido
     {
-        public int Id { get; }
+        public int Id { get; set; }
         public string Nome { get; set; }
         public string Cpf { get; set; }
         public DateTime Data {  get; set; }

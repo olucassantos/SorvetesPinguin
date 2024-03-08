@@ -24,7 +24,7 @@ namespace SorvetesPinguin
             InitializeComponent();
 
             // Carrega os dados do Json para a lista de produtos
-            produtos = ProcessaJson.CarregaLista();
+            produtos = ProcessaJson.CarregaListaProdutos();
         }
 
         private void adicionarToolStripMenuItem_Click(object sender, EventArgs e)
@@ -96,7 +96,7 @@ namespace SorvetesPinguin
             }
 
             // Armazena a lista no arquivo json
-            ProcessaJson.ArmazenaLista("./meuarquivojson.json", produtos);
+            ProcessaJson.ArmazenaLista("./produtos_data.json", produtos);
 
             string mensagem = "";
 
@@ -184,7 +184,7 @@ namespace SorvetesPinguin
             carregaListaProdutos();
 
             // Salva a lista no arquivo de texto
-            ProcessaJson.ArmazenaLista("./meuarquivojson.json", produtos);
+            ProcessaJson.ArmazenaLista("./produtos_data.json", produtos);
         }
 
         private void carregaListaProdutos(List<Produto> listaProdutos = null)

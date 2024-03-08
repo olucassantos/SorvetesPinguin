@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SorvetesPinguin
 {
-    internal class Pedido
+    public class Pedido
     {
         public int Id { get; set; }
         public string Nome { get; set; }

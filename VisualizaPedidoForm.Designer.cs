@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.listView1 = new System.Windows.Forms.ListView();
+            this.lsvItensPedido = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -45,21 +45,21 @@
             this.label5 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // listView1
+            // lsvItensPedido
             // 
-            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.lsvItensPedido.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader1,
             this.columnHeader2,
             this.columnHeader3,
             this.columnHeader4,
             this.columnHeader5});
-            this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(12, 90);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(651, 227);
-            this.listView1.TabIndex = 0;
-            this.listView1.UseCompatibleStateImageBehavior = false;
-            this.listView1.View = System.Windows.Forms.View.Details;
+            this.lsvItensPedido.HideSelection = false;
+            this.lsvItensPedido.Location = new System.Drawing.Point(12, 90);
+            this.lsvItensPedido.Name = "lsvItensPedido";
+            this.lsvItensPedido.Size = new System.Drawing.Size(651, 227);
+            this.lsvItensPedido.TabIndex = 0;
+            this.lsvItensPedido.UseCompatibleStateImageBehavior = false;
+            this.lsvItensPedido.View = System.Windows.Forms.View.Details;
             // 
             // columnHeader1
             // 
@@ -183,7 +183,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.listView1);
+            this.Controls.Add(this.lsvItensPedido);
             this.Name = "VisualizaPedidoForm";
             this.Text = "Visualização do Pedido";
             this.ResumeLayout(false);
@@ -193,7 +193,7 @@
 
         #endregion
 
-        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.ListView lsvItensPedido;
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.ColumnHeader columnHeader3;

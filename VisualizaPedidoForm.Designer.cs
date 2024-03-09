@@ -43,6 +43,13 @@
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
+            this.lblNumeroPedido = new System.Windows.Forms.Label();
+            this.lblNomeCliente = new System.Windows.Forms.Label();
+            this.lblCpfCliente = new System.Windows.Forms.Label();
+            this.lblStatus = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.lblValorTotal = new System.Windows.Forms.Label();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // lsvItensPedido
@@ -109,7 +116,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(589, 9);
+            this.label3.Location = new System.Drawing.Point(23, 6);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(37, 13);
             this.label3.TabIndex = 3;
@@ -169,23 +176,87 @@
             this.label5.TabIndex = 5;
             this.label5.Text = "Total";
             // 
+            // lblNumeroPedido
+            // 
+            this.lblNumeroPedido.AutoSize = true;
+            this.lblNumeroPedido.Location = new System.Drawing.Point(58, 9);
+            this.lblNumeroPedido.Name = "lblNumeroPedido";
+            this.lblNumeroPedido.Size = new System.Drawing.Size(35, 13);
+            this.lblNumeroPedido.TabIndex = 6;
+            this.lblNumeroPedido.Text = "label6";
+            // 
+            // lblNomeCliente
+            // 
+            this.lblNomeCliente.AutoSize = true;
+            this.lblNomeCliente.Location = new System.Drawing.Point(57, 35);
+            this.lblNomeCliente.Name = "lblNomeCliente";
+            this.lblNomeCliente.Size = new System.Drawing.Size(35, 13);
+            this.lblNomeCliente.TabIndex = 7;
+            this.lblNomeCliente.Text = "label7";
+            // 
+            // lblCpfCliente
+            // 
+            this.lblCpfCliente.AutoSize = true;
+            this.lblCpfCliente.Location = new System.Drawing.Point(45, 64);
+            this.lblCpfCliente.Name = "lblCpfCliente";
+            this.lblCpfCliente.Size = new System.Drawing.Size(35, 13);
+            this.lblCpfCliente.TabIndex = 8;
+            this.lblCpfCliente.Text = "label8";
+            // 
+            // lblStatus
+            // 
+            this.lblStatus.AutoSize = true;
+            this.lblStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblStatus.Location = new System.Drawing.Point(10, 26);
+            this.lblStatus.Name = "lblStatus";
+            this.lblStatus.Size = new System.Drawing.Size(63, 20);
+            this.lblStatus.TabIndex = 9;
+            this.lblStatus.Text = "Aberto";
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.panel1.Controls.Add(this.lblStatus);
+            this.panel1.Controls.Add(this.label3);
+            this.panel1.Location = new System.Drawing.Point(579, 3);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(83, 73);
+            this.panel1.TabIndex = 10;
+            // 
+            // lblValorTotal
+            // 
+            this.lblValorTotal.AutoSize = true;
+            this.lblValorTotal.Location = new System.Drawing.Point(627, 320);
+            this.lblValorTotal.Name = "lblValorTotal";
+            this.lblValorTotal.Size = new System.Drawing.Size(35, 13);
+            this.lblValorTotal.TabIndex = 8;
+            this.lblValorTotal.Text = "label8";
+            this.lblValorTotal.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
             // VisualizaPedidoForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(675, 397);
+            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.lblValorTotal);
+            this.Controls.Add(this.lblCpfCliente);
+            this.Controls.Add(this.lblNomeCliente);
+            this.Controls.Add(this.lblNumeroPedido);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lsvItensPedido);
             this.Name = "VisualizaPedidoForm";
             this.Text = "Visualização do Pedido";
+            this.Load += new System.EventHandler(this.VisualizaPedidoForm_Load);
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -208,5 +279,11 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label lblNumeroPedido;
+        private System.Windows.Forms.Label lblNomeCliente;
+        private System.Windows.Forms.Label lblCpfCliente;
+        private System.Windows.Forms.Label lblStatus;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label lblValorTotal;
     }
 }

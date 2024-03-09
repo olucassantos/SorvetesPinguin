@@ -152,6 +152,10 @@ namespace SorvetesPinguin
             {
                 MessageBox.Show("Pedido criado com sucesso!");
                 this.Close();
+                this.Hide();
+
+                VisualizaPedidoForm visualizaPedidoForm = new VisualizaPedidoForm(pedido);
+                visualizaPedidoForm.ShowDialog();
             }
             else
             {

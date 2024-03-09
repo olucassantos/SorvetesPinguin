@@ -20,5 +20,15 @@ namespace SorvetesPinguin
             this.Status = status;
             this.Cpf = cpf;
         }
+
+        public virtual List<Item> Items
+        {
+            get
+            {
+                List<Item> listaItens = ProcessaJson.CarregaListaItensPedido();
+
+                return listaItens.FindAll(item => item.PedidoId == Id);
+            }
+        }
     }
 }

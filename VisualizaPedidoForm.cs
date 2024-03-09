@@ -35,5 +35,36 @@ namespace SorvetesPinguin
                 lsvItensPedido.Columns[index].Width = (int)(tamanhos[index] * tamanhoListView);
             }
         }
+
+        private void VisualizaPedidoForm_Load(object sender, EventArgs e)
+        {
+            AtualizaInformacoesPedido();
+        }
+
+        private void AtualizaInformacoesPedido()
+        {
+            lblCpfCliente.Text = pedido.Cpf;
+            lblNomeCliente.Text = pedido.Nome;
+            lblValorTotal.Text = pedido.ValorTotal.ToString("c");
+            lblStatus.Text = pedido.Status;
+            lblNumeroPedido.Text = pedido.Id.ToString();
+
+            // Itera sobre os itens para adicionar ao listView
+            for (int index = 0; index < pedido.Items.Count; index++)
+            {
+                Item item = (Item)pedido.Items[index];
+                // Cria o item
+                ListViewItem listViewItem = new ListViewItem((index + 1).ToString());
+
+                // Adiciona as colunas
+                listViewItem.SubItems.Add(item.Produto.Nome);
+                listViewItem.SubItems.Add(item.Valor.ToString("c"));
+                listViewItem.SubItems.Add(item.Quantidade.ToString());
+                listViewItem.SubItems.Add(item.ValorTotal.ToString("c"));
+
+                // Adiciona o item ao listview
+                lsvItensPedido.Items.Add(listViewItem);
+            }
+        }
     }
 }

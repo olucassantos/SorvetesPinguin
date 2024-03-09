@@ -58,8 +58,8 @@ namespace SorvetesPinguin
 
                 // Adiciona as colunas
                 listViewItem.SubItems.Add(item.Produto.Nome);
-                listViewItem.SubItems.Add(item.Valor.ToString("c"));
                 listViewItem.SubItems.Add(item.Quantidade.ToString());
+                listViewItem.SubItems.Add(item.Valor.ToString("c"));
                 listViewItem.SubItems.Add(item.ValorTotal.ToString("c"));
 
                 // Adiciona o item ao listview
